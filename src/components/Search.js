@@ -12,18 +12,22 @@ function Search() {
                 
                 {/* buttons */}
                 <div className='SearchTitleButtons'>
-              
+                <div className='DropdownContainer'>
                 <label htmlFor='difficulty' style={{padding: 10}}>Difficulty</label>
                 <select id='difficulty' name='difficulty'>
                     <option value='easy'>Easy</option>
+                    <option value='easy'>Intermediate</option>
                     <option value='hard'>Hard</option>
                 </select>
+                </div>
           
+                <div className='DropdownContainer'>
                 <label htmlFor='time' style={{padding: 10}}>Cooking Time</label>
                 <select id='time' name='time'>
                     <option value='fast'>Fast</option>
                     <option value='slow'>Slow</option>
                 </select>
+                </div>
                 </div>
                 
                 <div className='SearchBar'>

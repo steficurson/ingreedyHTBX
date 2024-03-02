@@ -34,11 +34,6 @@
             
             }
 
-        @media only screen and (min-width:1200px) {
-            .SearchContentText {
-            padding: 3rem 6rem;
-            }
-        }
         @media only screen and (min-width:1500px) {
             .SearchContentText {
             padding: 3rem 9rem;
@@ -52,43 +47,51 @@
         padding: 2rem;
     }
 
-    .DropdownButton {
-        /* Add your dropdown button styles here */
-        margin-right: 10px; /* Adjust the spacing between dropdowns */
-    }
-    
-    .SearchBar {
+    .SearchTitleButtons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      
+      .DropdownContainer {
         display: flex;
         align-items: center;
-        justify-content: center;
-        padding: 2rem;
-    }
-    
-    label {
-        margin-right: 10px;
-    }
-    
-    .SearchInputContainer {
+      }
+      
+      label {
+        padding: 10px;
+      }
+      
+      select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-left: 10px;
+      }
+      
+      .SearchBar {
         display: flex;
         align-items: center;
-    }
-    
-    input {
+        margin-top: 20px;
+      }
+      
+      input {
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
         margin-right: 10px;
-    }
-    
-    button {
+      }
+      
+      button {
         padding: 8px 12px;
-        color: black;
+        background-color: #007bff;
+        color: #fff;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-    }
-    
-    button:hover {
-        background-color: grey; /* Adjust the hover color as needed */
-    }
-    
+      }
+      
+      button:hover {
+        background-color: #0056b3;
+      }
