@@ -79,11 +79,14 @@ def extract_recipes(pages, sleep_timer):
 
         for page in pages:
             time.sleep(sleep_timer)
-            #url = f'https://www.bbcgoodfood.com/search/recipes/page/{page}/?sort=-popular'
-            url = f'https://www.bbcgoodfood.com/search/page/{page}'
-            html = requests.get(url)
+            #url = f'https://www.bbcgoodfood.com/search/recipes/page/{page}/'
+            recipe_url = f"https://www.bbcgoodfood.com/recipes/"
+            #collections = f"https://www.bbcgoodfood.com/search/recipes"
+          #  url = f'https://www.bbcgoodfood.com/search/page/{page}'
+            html = requests.get(recipe_url)
             soup = BeautifulSoup(html.text, 'html.parser')
             recipe_urls = pd.Series([a.get("href") for a in soup.find_all("a")])
+            collection_urls = pd.Series([a.get("href") for a in soup.find_all("a")])
             """ recipe_urls = recipe_urls[(recipe_urls.str.count("-") > 0)
                                       & (recipe_urls.str.contains("/recipes/") == True)
                                       & (recipe_urls.str.contains("category") == False)
@@ -91,13 +94,47 @@ def extract_recipes(pages, sleep_timer):
             
             #Filtering URLs 
             recipe_urls = recipe_urls[(recipe_urls.str.count("-") > 0)
-                                      & (recipe_urls.str.contains("/recipes/") == True)
+                                      & (recipe_urls.str.contains("recipes/") == True)
                                       & (recipe_urls.str.contains("category") == False)
-                                      & (recipe_urls.str.contains("collection") == False)#howto/guide
-                                      & (recipe_urls.str.contains("howto") == False)]
+                                      & (recipe_urls.str.contains("collection") == False)#owto/guide
+                                      & (recipe_urls.str.contains("howto") == False)].unique()
+            collection_urls = collection_urls[(collection_urls.str.count("-") > 0)
+                                      & (collection_urls.str.contains("recipes/") == True)
+                                      & (collection_urls.str.contains("category") == False)
+                                      & (collection_urls.str.contains("collection") == True)#owto/guide
+                                      & (collection_urls.str.contains("https") == True)
+                                      & (collection_urls.str.contains("comnan") == False)].unique()
+            
+            
+
             print("making " + str(page) + " dataframe")
             df = pd.DataFrame({"recipe_urls": recipe_urls})
-            urls_df = pd.concat([urls_df, df], ignore_index=True)
+
+            collection_recipes=[]
+            for collection_url in collection_urls:
+                try:
+                    html = requests.get(collection_url)
+                except:
+                    break
+                soup = BeautifulSoup(html.text, 'html.parser')
+                thiscollections_urls = pd.Series([a.get("href") for a in soup.find_all("a")])
+                thiscollections_urls = thiscollections_urls[(thiscollections_urls.str.count("-") > 0)
+                                      & (thiscollections_urls.str.contains("recipes/") == True)
+                                      & (thiscollections_urls.str.contains("category") == False)
+                                      & (thiscollections_urls.str.contains("collection") == False)
+                                      & (thiscollections_urls.str.contains("howto") == False)].unique()
+                
+                collection_recipes.extend(thiscollections_urls)
+            print("all collection recipes ")
+
+
+            collections_recipes_df = pd.DataFrame(collection_recipes, columns=['recipe_urls'])
+
+            all_urls = pd.concat([collections_recipes_df, df], ignore_index=True)
+            urls_df = pd.concat([urls_df, all_urls], ignore_index=True)
+            urls_df.drop_duplicates(inplace=True)
+
+          
 
         urls_df['recipe_urls'] = 'https://www.bbcgoodfood.com' + urls_df['recipe_urls'].astype(str)
         recipes_df = pd.DataFrame(
@@ -111,13 +148,19 @@ def extract_recipes(pages, sleep_timer):
         for i in range(len(list_urls)):
             time.sleep(sleep_timer)
             url = list_urls[i]
-            html = requests.get(url)
+            try:
+                html = requests.get(url)
+            except:
+                print("invalid url: " + str(url))
+                continue
             soup = BeautifulSoup(html.text, 'html.parser')
 
             try:
                 recipe_title = soup.find('h1', {'class': 'heading-1'}).text
+                print(recipe_title)
                 if(recipe_title.lower().__contains__("how")):
-                    break
+                    continue
+
             except:
                 recipe_title = np.nan
             try:
@@ -172,14 +215,15 @@ def extract_recipes(pages, sleep_timer):
             ingredient = soup.find_all('li', {'class': 'pb-xxs pt-xxs list-item list-item--separator'})
             while i < len(ingredient):
                 try:
-                    ingredient_string = ''.join(str(ingredient[i]).split('<!-- -->')[1])
+                    ingredient_string = str(''.join(str(ingredient[i]).split('<!-- -->')[1]))
+                    ingredient_string= ingredient_string.replace(",", ";")
                 except Exception as e:
-                    ingredient_string = ''.join(ingredient[i].text)
+                    ingredient_string = str(''.join(ingredient[i].text))
+                    ingredient_string = ingredient_string.replace(",", ";")
                     pass
                 ingredient_list.append(ingredient_string)
                 ingredient_list = [l.replace('</li>', '') for l in ingredient_list]
                 i = i + 1
-        
 
             recipes_df = recipes_df._append(
                 {'title': recipe_title, 'difficulty': difficulty, 'serves': serves, 'rating': rating, 'vegetarian': vegetarian, 'vegan': vegan,
@@ -197,7 +241,7 @@ def extract_recipes(pages, sleep_timer):
 
 if __name__ == '__main__':
     # enter how many pages of recipes you would like to scrape
-    pages = range_of_numbers(20)
+    pages = range_of_numbers(1)
     # here you can change the amount of time between each request to scrape data
     sleep_timer = 1
    # week = datetime.datetime.now().strftime("%Y-%m-%d")
