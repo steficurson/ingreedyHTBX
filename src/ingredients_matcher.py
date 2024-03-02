@@ -26,32 +26,52 @@ def clean_ingredient(ingredient):
 
     return ' '.join(ingredient_list)
 
-keywords = ['onion', 'garlic', 'spring onion', 'ginger', 'soy sauce', 'olive oil', 'pork', 'chicken breast', 'chicken thigh', 'ground cumin', 'cumin', 'tomato', 'tomato paste', 'butter', 'tomato ketchup', 'parsley', 'leek', 'pork sausages']
+keywords = ['onion', 'garlic', 'spring onion', 'ginger', 'soy sauce', 'olive oil', 'pork', 'chicken breast', 'chicken thigh',
+    'ground cumin', 'cumin', 'tomato', 'tomato paste', 'butter', 'tomato ketchup', 'parsley', 'leek', 'pork sausages', 'beef',
+    'salt', 'water', 'sugar', 'flour', 'butter', 'onion', 'garlic', 'olive oil', 'egg', 'milk', 'chopped tomatoes', 'chicken stock',
+    'pepper', 'vanilla extract', 'baking powder', 'lemon juice', 'chicken', 'tomato', 'cream', 'cheese', 'chocolate', 'rice',
+    'baking soda', 'vinegar', 'honey', 'cinnamon', 'bell pepper', 'carrot', 'parsley', 'lemon zest', 'lime juice', 'yogurt', 'curry paste',
+    'ginger', 'nutmeg', 'brown sugar', 'basil', 'oregano', 'thyme', 'rosemary', 'cumin', 'coriander', 'cayenne pepper', 'paprika',
+    'mustard', 'turmeric', 'garlic powder', 'onion powder', 'black pepper', 'white pepper', 'red pepper flakes', 'chili powder', 'dill', 'red chilli',
+    'bay leaf', 'celery', 'potato', 'haddock' 'bell pepper', 'spinach', 'mushroom', 'zucchini', 'squash', 'sweet potato', 'corn', 'peas', 'garam masala'
+    'green beans', 'asparagus', 'broccoli', 'cauliflower', 'avocado', 'lettuce', 'cabbage', 'kale', 'radish', 'beet', 'eggplant', 'chilli powder',
+    'cucumber', 'tomato paste', 'tomato sauce', 'tomato puree', 'tomato', 'chopped tomato', 'coconut milk', 'coconut oil', 'coconut flakes', 'almond', 'walnut', 'pecan',
+    'cashew', 'peanut', 'pistachio', 'macadamia nut', 'pine nut', 'sunflower seed', 'sesame seed', 'flaxseed', 'chia seed', 'poppy seed',
+    'quinoa', 'barley', 'oats', 'bulgur', 'couscous', 'brown rice', 'white rice', 'wild rice', 'spaghetti', 'penne', 'fettuccine',
+    'lasagna noodles', 'macaroni', 'gnocchi', 'ramen noodles', 'soba noodles', 'udon noodles', 'rice noodles', 'cannellini beans', 'black beans',
+    'pinto beans', 'kidney beans', 'chickpeas', 'lentils', 'green lentils', 'red lentils', 'split peas', 'black-eyed peas', 'chili beans',
+    'green peas', 'peanut butter', 'jam', 'jelly', 'crème fraîche', 'sour cream', 'yogurt', 'mascarpone', 'ricotta', 'cottage cheese', 'chives',
+    'vanilla', 'curry powder', 'feta cheese', 'puff pastry', 'salmon', 'tuna', 'white wine', 'sage', 'vegetable oil']
 
 def find_longest_keyword(ingredient):
     # Initialize variables to store the longest matching keyword and its length
     longest_keyword = ""
-    longest_length = 0
+    max_length = 0
 
     # Iterate through each keyword in the 'keywords' array
     for keyword in keywords:
         # Check if the keyword or its plural form is present in the ingredient string
         if keyword in ingredient or p.plural(keyword) in ingredient:
             # If the length of the keyword is greater than the current longest length, update the variables
-            if len(keyword) > longest_length:
+            if len(keyword) > max_length:
                 longest_keyword = keyword
-                longest_length = len(keyword)
+                max_length = len(keyword)
 
     # Return the longest matching keyword
     return longest_keyword
 
 
 # Load the data
-df = pd.read_csv('data/sample-data.csv')
-ingredient_list = df["ingredient"].tolist()
+recipe_data = pd.read_csv('data/sample-data.csv')
+all_recipes_cleaned_ingredients= dict.fromkeys(recipe_data["title"].tolist())
 
-for recipe in ingredient_list:
+for recipe in recipe_data:
+    ingredient_data = recipe_data[recipe]
     recipe = recipe.split(',')
+    cleaned_ingredients = []
     for ingredient in recipe:
-        #print(ingredient + "----------->" + str(clean_ingredient(ingredient)))
-        print(ingredient + "----------->" + str(find_longest_keyword(ingredient)))
+        matched_ingredient = find_longest_keyword(ingredient)
+        cleaned_ingredients.append(matched_ingredient)
+
+#print(cleaned_ingredient_list)
+
