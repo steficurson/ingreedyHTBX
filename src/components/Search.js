@@ -12,7 +12,7 @@ function Search() {
                 </div>
                 
                 <div className='SearchBar'>
-                    
+                {/* searchbar */}
                 </div>
             
         </div> 
