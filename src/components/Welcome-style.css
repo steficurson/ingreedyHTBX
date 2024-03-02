@@ -1,0 +1,115 @@
+
+.WelcomeContainer {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+margin-top: 7rem;
+color: #d6322c;
+}
+
+.WelcomeContent {
+display: flex;
+justify-content: center;
+align-items: center;
+background: #fff;
+}
+
+@media only screen and (max-width:1000px) {
+    .WelcomeContent {
+    flex-direction: column;
+    }
+}
+
+
+.WelcomeImg {
+height: 100%;
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+.Img {
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+object-fit: cover;
+border-radius: 4px;
+height: 300px;
+}
+
+@media only screen and (min-width:300px) {
+    .Img {
+    width: 300px;
+    }
+}
+@media only screen and (min-width:400px) {
+    .Img {
+    width: 400px;
+    }
+}
+@media only screen and (min-width:600px) {
+    .Img {
+    width: 500px;
+    }
+}
+@media only screen and (min-width:800px) {
+    .Img {
+    width: 800px;
+    }
+}
+@media only screen and (min-width:1000px) {
+    .Img {
+    width: 500px;
+    height: 400px;
+    }
+}
+@media only screen and (min-width:1200px) {
+    .Img {
+    width: 600px;
+    }
+}
+@media only screen and (min-width:1500px) {
+    .Img {
+    width: 750px;
+    }
+}
+@media only screen and (min-width:1800px) {
+    .Img {
+    width: 900px;
+    }
+}
+
+
+.WelcomeContentText {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 3rem;
+
+}
+
+@media only screen and (min-width:1200px) {
+    .WelcomeContentText {
+    padding: 3rem 6rem;
+    }
+}
+@media only screen and (min-width:1500px) {
+    .WelcomeContentText {
+    padding: 3rem 9rem;
+    }
+}
+
+.WelcomeContentTitle {
+font-size: 3.6rem;
+font-weight: bold;
+}
+
+.WelcomeText {
+font-size: 1.8rem;
+}
+
+&:not(:last-child) {
+    margin-bottom: 2rem;
+}
