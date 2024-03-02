@@ -12,7 +12,9 @@
     "react-scripts": "^5.0.1",
     "react-search-box-hooks": "^0.2.6",
     "styled-components": "^6.1.8",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@babel/plugin-proposal-private-property-in-object":"7.21.11"
+
   },
   "scripts": {
     "start": "react-scripts start",
