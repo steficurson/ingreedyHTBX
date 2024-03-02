@@ -1,18 +1,16 @@
-
 .WelcomeContainer {
 display: flex;
 justify-content: center;
 align-items: center;
 width: 100%;
-margin-top: 7rem;
 color: #d6322c;
+background: #fbfcf0;
 }
 
 .WelcomeContent {
 display: flex;
 justify-content: center;
 align-items: center;
-background: #fff;
 }
 
 @media only screen and (max-width:1000px) {
@@ -27,6 +25,7 @@ height: 100%;
 width: 100%;
 display: flex;
 justify-content: center;
+margin: 2rem;
 }
 
 .Img {
@@ -34,7 +33,7 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 object-fit: cover;
-border-radius: 4px;
+border-radius: 25px;
 height: 300px;
 }
 
