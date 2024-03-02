@@ -1,0 +1,124 @@
+.footer-container {
+    background-color: #36363c;
+    padding: 2rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-logo {
+    background-image: url('../images/TOMATO.png');
+    height: 100px;
+    width: 100px;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 100px;
+  }
+  
+  .footer-email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 24px;
+    color: #fff;
+  }
+  
+  .footer-email > p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+  }
+
+  .footer-container a {
+    color: #fff;
+  }
+  
+  .footer-email-heading {
+    margin-bottom: 24px;
+    font-size: 24px;
+  }
+  
+  .footer-email-text {
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+  }
+
+  .footer-coder-text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    margin-top: 4.5rem;
+  }
+  
+  /* Social Icons */
+  .social-icon-link {
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .social-media {
+    max-width: 1000px;
+    width: 100%;
+  }
+  
+  .social-media-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+    padding-right: 20px;
+  }
+  
+  .social-logo {
+    color: #fff;
+    justify-self: start;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .website-rights {
+    color: #fff;
+    margin-left: 90px;
+    margin-right: 30px;
+    font-size: large;
+  }
+  
+  @media screen and (max-width: 820px) {
+    .btn {
+      width: 100%;
+    }
+  
+    .footer-link-wrapper {
+      flex-direction: column;
+    }
+ 
+    .website-rights {
+      margin: 2rem;
+    }
+
+    .footer-logo {
+        margin: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .social-media-wrap {
+      flex-direction: column;
+    }
+  }
