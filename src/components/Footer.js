@@ -11,8 +11,8 @@ function Footer() {
         <p className='footer-email-heading'>
           Contact Us
         </p>
-        <a href='mailto:ingreedy@gmail.com' className='footer-email-text'>
-         ingreedy@gmail.com
+        <a href='mailto:ingreedy@business.com' className='footer-email-text'>
+         ingreedy@business.com
         </a>    
         <p className='footer-coder-text'>
          Website by Charli's (XCX) Angels

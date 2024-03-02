@@ -43,16 +43,8 @@
 
     .SearchTitleButtons {
         display: flex;
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
-        padding: 2rem;
-    }
-
-    .SearchTitleButtons {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        margin-bottom: 20px;
       }
       
       .DropdownContainer {
@@ -74,7 +66,8 @@
       .SearchBar {
         display: flex;
         align-items: center;
-        margin-top: 20px;
+        justify-content: center;
+        padding: 5rem;
       }
       
       input {
@@ -96,3 +89,8 @@
       button:hover {
         background-color: #0056b3;
       }
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+    

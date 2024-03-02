@@ -1,0 +1,51 @@
+.RecipeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #d6322c;
+    background: #fbfcf0;
+    }
+    
+    .RecipeContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    }
+    
+    @media only screen and (max-width:1000px) {
+        .RecipeContent {
+        flex-direction: column;
+        }
+    }
+    
+    .RecipeContentText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    
+    }
+    
+    @media only screen and (min-width:1200px) {
+        .RecipeContentText {
+        padding: 3rem 6rem;
+        }
+    }
+    @media only screen and (min-width:1500px) {
+        .RecipeContentText {
+        padding: 3rem 9rem;
+        }
+    }
+    
+    .RecipeContentTitle {
+    font-size: 3.6rem;
+    font-weight: bold;
+    }
+    
+    &:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+    
