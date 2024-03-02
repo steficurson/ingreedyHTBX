@@ -113,7 +113,7 @@
     }
   
     .nav-menu.active {
-      background: linear-gradient(90deg, #fff 0%, #fbfcf0 100%);
+      background: linear-gradient(90deg, #ebd9b0 0%, #ebd9b0 100%);
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
@@ -122,7 +122,7 @@
 
     .logo_image {
       height: 92%;
-      width: 100%;
+      width: 50%;
       cursor: pointer;
       justify-self: start;
   }
@@ -142,7 +142,7 @@
 
     .nav-links:hover {
       background-color: #fff;
-      color: #48BEDA;
+      color: #d6322c;
       border-radius: 0;
     }
   
@@ -164,8 +164,12 @@
     }
   
     .fa-times {
-      color: #fff;
+      color: #d6322c;
       font-size: 2rem;
+    }
+
+    .fa-bars {
+      color: #d6322c;
     }
   
     .nav-links-mobile {
@@ -177,15 +181,15 @@
       text-decoration: none;
       font-size: 1.5rem;
       background-color: transparent;
-      color: #fff;
+      color: #d6322c;
       padding: 14px 20px;
-      border: 1px solid #fff;
+      border: 1px solid #ebd9b0;
       transition: all 0.3s ease-out;
     }
   
     .nav-links-mobile:hover {
-      background: #fff;
-      color: #fbfcf0;
+      background: #ebd9b0;
+      color: #ebd9b0;
       transition: 250ms;
     }
   }
