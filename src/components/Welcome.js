@@ -1,11 +1,12 @@
 import './Welcome-style.css'
+import veg from '../images/veggies.jpg'
 
 const Welcome = () => {
     return (
         <div className='WelcomeContainer'>
                 <div className='WelcomeContent'>
                     <div className='WelcomeImg'>
-                        {/* <img className='Img'src={hi} alt="veg"/> */}
+                        <img className='Img'src={veg} alt="veg"/> 
                     </div>
                     <div className='WelcomeContentText'>
                         <div className='WelcomeContentTitle'><h2>What is Ingreedy?</h2></div>

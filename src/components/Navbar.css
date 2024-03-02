@@ -1,5 +1,5 @@
 .navbar {
-    background: #fbfcf0;
+    background: #ebd9b0;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -19,9 +19,8 @@
   }
 
   .logo_image {
-        padding: 10;
-      height: 92%;
-      width: 39%;
+      height: 35%;
+      width: 38%;
       cursor: pointer;
       justify-self: start;
   }
@@ -44,6 +43,7 @@
   
   .nav-item {
     height: 80px;
+    font-size: 1.8rem;
   }
   
   .nav-links {
@@ -51,7 +51,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     height: 100%;
     position: relative;
   }
