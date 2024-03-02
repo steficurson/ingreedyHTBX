@@ -23,3 +23,72 @@
         font-size: 3.6rem;
         font-weight: bold;
         }
+
+
+        .SearchContentText {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            
+            }
+
+        @media only screen and (min-width:1200px) {
+            .SearchContentText {
+            padding: 3rem 6rem;
+            }
+        }
+        @media only screen and (min-width:1500px) {
+            .SearchContentText {
+            padding: 3rem 9rem;
+            }
+        }
+
+    .SearchTitleButtons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .DropdownButton {
+        /* Add your dropdown button styles here */
+        margin-right: 10px; /* Adjust the spacing between dropdowns */
+    }
+    
+    .SearchBar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+    
+    label {
+        margin-right: 10px;
+    }
+    
+    .SearchInputContainer {
+        display: flex;
+        align-items: center;
+    }
+    
+    input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    
+    button {
+        padding: 8px 12px;
+        color: black;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: grey; /* Adjust the hover color as needed */
+    }
+    
