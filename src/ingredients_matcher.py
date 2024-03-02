@@ -3,6 +3,8 @@ import numpy as np
 import inflect
 p = inflect.engine()
 
+# ----- code for method 1 -----
+
 preceeding_words = ['tsp', 'tbsp', 'tsps', 'tbsps', 'large', 'small', 'medium', 'ml', 'carton', 'x', 'about', 'can', 'cans', 'aprx', 'about', 'around', 'pack', 'packs', 'slices', 'cloves', 'boneless', 'shredded', 'fresh', 'cooked', 'bunch', 'bunches']
 
 def is_measurement(word):
@@ -26,6 +28,8 @@ def clean_ingredient(ingredient):
 
     return ' '.join(ingredient_list)
 
+# ----- code for method 2 -----
+
 keywords = ['onion', 'garlic', 'spring onion', 'ginger', 'soy sauce', 'olive oil', 'pork', 'chicken breast', 'chicken thigh',
     'ground cumin', 'cumin', 'tomato', 'tomato paste', 'butter', 'tomato ketchup', 'parsley', 'leek', 'pork sausages', 'beef',
     'salt', 'water', 'sugar', 'flour', 'butter', 'onion', 'garlic', 'olive oil', 'egg', 'milk', 'chopped tomatoes', 'chicken stock',
@@ -43,35 +47,37 @@ keywords = ['onion', 'garlic', 'spring onion', 'ginger', 'soy sauce', 'olive oil
     'green peas', 'peanut butter', 'jam', 'jelly', 'crème fraîche', 'sour cream', 'yogurt', 'mascarpone', 'ricotta', 'cottage cheese', 'chives',
     'vanilla', 'curry powder', 'feta cheese', 'puff pastry', 'salmon', 'tuna', 'white wine', 'sage', 'vegetable oil']
 
-def find_longest_keyword(ingredient):
-    # Initialize variables to store the longest matching keyword and its length
-    longest_keyword = ""
+# Matches the ingredient in a recipe to one in the predefined list of ingredients
+def find_ingredient(ingredient):
+    longest_keyword = None
     max_length = 0
-
-    # Iterate through each keyword in the 'keywords' array
     for keyword in keywords:
-        # Check if the keyword or its plural form is present in the ingredient string
         if keyword in ingredient or p.plural(keyword) in ingredient:
-            # If the length of the keyword is greater than the current longest length, update the variables
             if len(keyword) > max_length:
                 longest_keyword = keyword
                 max_length = len(keyword)
-
-    # Return the longest matching keyword
     return longest_keyword
 
+def generate_clean_csv():
+    # Load the data
+    recipe_data = pd.read_csv('data/sample-data.csv')
+    #all_recipes_cleaned_ingredients= dict.fromkeys(recipe_data['title'])
 
-# Load the data
-recipe_data = pd.read_csv('data/sample-data.csv')
-all_recipes_cleaned_ingredients= dict.fromkeys(recipe_data["title"].tolist())
+    for index, recipe in recipe_data.iterrows():
+        ingredient_data = recipe['ingredient'].split(',')
+        cleaned_ingredients = []
+        for ingredient in ingredient_data:
+            matched_ingredient = find_ingredient(ingredient)
+            if matched_ingredient:
+                cleaned_ingredients.append(matched_ingredient)
+        recipe_data.loc[index, 'ingredient'] = ','.join(cleaned_ingredients)
+        #all_recipes_cleaned_ingredients[recipe['title']] = cleaned_ingredients
+    recipe_data.to_csv('data/cleaned-recipes.csv')
 
-for recipe in recipe_data:
-    ingredient_data = recipe_data[recipe]
-    recipe = recipe.split(',')
-    cleaned_ingredients = []
-    for ingredient in recipe:
-        matched_ingredient = find_longest_keyword(ingredient)
-        cleaned_ingredients.append(matched_ingredient)
+def match_search_terms(search_terms):
+    matched_ingredients = []
+    #for ingredient in
+    return matched_ingredients
 
-#print(cleaned_ingredient_list)
+generate_clean_csv()
 
