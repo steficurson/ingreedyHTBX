@@ -2,7 +2,6 @@ import React from 'react';
 import './Footer.css';
 import { Link } from 'react-router-dom';
 
-
 function Footer() {
   return (
     <div id='contact-us'>
@@ -15,7 +14,7 @@ function Footer() {
          ingreedy@business.com
         </a>    
         <p className='footer-coder-text'>
-         Website by Charli's (XCX) Angels
+         Website by Charli's Angels
         </p>
       </section>
        
