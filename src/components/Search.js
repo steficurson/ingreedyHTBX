@@ -7,6 +7,13 @@ import PyodidePythonHelper from "./RecipeBuilder"
 
 const selected_ingredients = []
 
+let pyodide;
+
+function onPyodideLoaded() {
+    pyodide = window.pyodide;
+    console.log('Pyodide is loaded');
+}
+
 function DropDown() {
 
   const [ingredients, setIngredients] = useState([]);
@@ -34,7 +41,7 @@ function DropDown() {
   
 
   return (
-    <div>
+    <div className='hi'>
       <h2>Select Ingredients:</h2>
       <Select
         options={options}
@@ -45,6 +52,8 @@ function DropDown() {
             ...provided,
             color: state.isSelected ? 'white' : 'black', // Change color based on selection
             backgroundColor: state.isSelected ? ' #d6322c' : 'white', // Change background color based on selection
+            width: 100,
+            padding:10
           }),
           multiValueLabel: (provided) => ({
             ...provided,
@@ -52,8 +61,8 @@ function DropDown() {
           }),
         }}
       />
-      <div>
-      <h3>Selected Ingredients:</h3>
+      <div className='plz'>
+      <h2>Selected Ingredients:</h2>
         <ul>
           {selectedIngredients.map((ingredient, index) => (
             selected_ingredients.push({ingredient}),
@@ -92,8 +101,9 @@ function DropDown() {
 
 function SearchBar() {
   //Took out, dont think its working 
+  const [showResult, setShowResult] = useState(false);
   const handleSearchClick = () => {
-    return <PyodidePythonHelper selectedIngredients={selected_ingredients} />;
+    setShowResult(true);
   };
   return (
     <div className='SearchContainer'>
@@ -106,7 +116,7 @@ function SearchBar() {
                 {/* buttons */}
                 <div className='SearchTitleButtons'>
                 <div className='DropdownContainer'>
-                <label htmlFor='difficulty' style={{padding: 10}}>Difficulty</label>
+                <label htmlFor='difficulty' style={{padding: 10, fontSize: 25}}>Difficulty</label>
                 <select id='difficulty' name='difficulty'>
                     <option value='easy'>Easy</option>
                     <option value='easy'>Intermediate</option>
@@ -115,7 +125,7 @@ function SearchBar() {
                 </div>
           
                 <div className='DropdownContainer'>
-                <label htmlFor='time' style={{padding: 10}}>Cooking Time</label>
+                <label htmlFor='time' style={{padding: 10, fontSize: 25}}>Cooking Time</label>
                 <select id='time' name='time'>
                     <option value='fast'>Fast</option>
                     <option value='slow'>Slow</option>
@@ -124,9 +134,9 @@ function SearchBar() {
                 </div>
                 <DropDown />
                 <div className='SearchBar'>
-                console.log("pre button")
-                <button type='button' onClick={handleSearchClick}>Search</button>
                 
+                <button type='button' onClick={handleSearchClick}>Search</button>
+                {showResult && <PyodidePythonHelper selectedIngredients={selected_ingredients} />}
                 </div>
                 </div>
         </div> 

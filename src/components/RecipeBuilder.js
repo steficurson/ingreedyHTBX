@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import match_search_terms from "../ingredients_matcher.py";
 
+
 function PyodidePythonHelper (args = [] ) {
   const [result, setResult] = useState('');
 
   useEffect(() => {
     // Load Pyodide
        const pyodide = window.pyodide;
+       
 
     // Define the arguments to be passed to the Python script
 
