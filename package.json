@@ -2,7 +2,6 @@
   "name": "ingreedy",
   "version": "0.1.0",
   "private": true,
-  "proxy" : "http://localhost:3000",
   "start": "react-scripts --max-http-header-size=1024 start",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
@@ -11,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "csv-parse": "^5.5.5",
     "csv-parser": "^3.0.0",
+    "d3": "^7.8.5",
     "express": "^4.18.3",
     "fs": "^0.0.1-security",
     "react": "^18.2.0",
@@ -20,6 +20,7 @@
     "react-router-dom": "^6.22.2",
     "react-scripts": "^5.0.1",
     "react-search-box-hooks": "^0.2.6",
+    "react-select": "^5.8.0",
     "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
