@@ -1,8 +1,13 @@
 import React from 'react'
+import AboutNew from '../components/NewAbout'
+import Footer from '../components/Footer'
 
 function About() {
   return (
-    <div>About</div>
+    <>
+    <AboutNew />
+    <Footer />
+    </>
   )
 }
 
