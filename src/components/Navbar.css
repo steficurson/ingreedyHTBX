@@ -111,16 +111,14 @@
       left: -100%;
       opacity: 1;
       transition: all 0.5s ease;
-      grid-gap:0;
     }
   
     .nav-menu.active {
-      background: linear-gradient(90deg, #ebd9b0 0%, #ebd9b0 100%);
+      background: #ebd9b0;
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 1;
-      width: 100%;
     }
 
     .logo_image {
@@ -132,10 +130,11 @@
   
     .nav-links {
       text-align: center;
-      padding: 2rem;
       width: 100%;
-      display: table;
+      margin: 0;
+      display: block;
       font-size: 1.4rem;
+      display: table;
     line-height: 1;
     padding: 2rem 0;
     }

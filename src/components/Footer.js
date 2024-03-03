@@ -14,7 +14,7 @@ function Footer() {
          ingreedy@business.com
         </a>    
         <p className='footer-coder-text'>
-         Website by Charli's (XCX) Angels
+         Website by Charli's Angels
         </p>
       </section>
        
