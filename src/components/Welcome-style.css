@@ -115,14 +115,11 @@ max-width: 100%;
     }
 }
 
-.WelcomeContentTitle {
+.WelcomeContentTitle h2 {
 font-size: 3.6rem;
+padding-bottom: 2rem;
 font-weight: bold;
-box-sizing: border-box;
-height: 100%;
-width: 100%;
-display: flex;
-justify-content: center;
+
 }
 
 .WelcomeText {
