@@ -114,7 +114,7 @@
     }
   
     .nav-menu.active {
-      background: #ebd9b0;
+      background: linear-gradient(90deg, #ebd9b0 0%, #ebd9b0 100%);
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
@@ -123,20 +123,16 @@
 
     .logo_image {
       height: 92%;
-      width: 50%;
+      width: 100%;
       cursor: pointer;
       justify-self: start;
   }
   
     .nav-links {
       text-align: center;
+      padding: 2rem;
       width: 100%;
-      margin: 0;
-      display: block;
-      font-size: 1.4rem;
       display: table;
-    line-height: 1;
-    padding: 2rem 0;
     }
   
     .nav-links:before,
@@ -180,12 +176,13 @@
     .nav-links-mobile {
       display: block;
       text-align: center;
+      margin: 0.4rem auto;
       border-radius: 20px;
       width: 80%;
       text-decoration: none;
       font-size: 1.5rem;
       background-color: transparent;
-      color: #d6322c;
+      color: #ebd9b0;
       padding: 14px 20px;
       border: 1px solid #ebd9b0;
       transition: all 0.3s ease-out;
