@@ -3,8 +3,9 @@ import inflect
 import re
 p = inflect.engine()
 
-keywords = pd.read_csv('data/ingredients_data.csv')['Ingredient'].tolist()
+ROOT_PATH = '../public/data/'
 NR_RESULTS = 20
+keywords = pd.read_csv(ROOT_PATH + 'ingredients_data.csv')['Ingredient'].tolist()
 
 # Matches the ingredient in a recipe to one in the predefined list of ingredients
 # Finds longest match
@@ -21,7 +22,7 @@ def find_ingredient(ingredient):
 #Loads the scraped data and parses the ingredients
 def generate_clean_csv():
     # Load the data
-    recipe_data = pd.read_csv('data/recipes_data.csv')
+    recipe_data = pd.read_csv(ROOT_PATH + 'recipes_data.csv')
     recipe_data.dropna(subset=['ingredient'], inplace=True)
 
     for index, recipe in recipe_data.iterrows():
@@ -34,11 +35,11 @@ def generate_clean_csv():
                 cleaned_ingredients.append(matched_ingredient)
         #Replace the ingredient list with the cleaned one - convert to set to remove duplicates
         recipe_data.loc[index, 'ingredient'] = ','.join(set(cleaned_ingredients))
-    recipe_data.to_csv('data/cleaned-recipes.csv')
+    recipe_data.to_csv(ROOT_PATH + 'cleaned-recipes.csv')
 
 #Matches the search terms to the ingredients in the recipes
 def match_search_terms(search_terms):
-    recipe_data = pd.read_csv('data/cleaned-recipes.csv')
+    recipe_data = pd.read_csv(ROOT_PATH + 'cleaned-recipes.csv')
     recipe_data.dropna(subset=['ingredient'], inplace=True)
     recipe_data["nr_matches"] = ""
     recipe_data["matched_ingredients"] = ""
@@ -60,5 +61,5 @@ def match_search_terms(search_terms):
 
 #generate_clean_csv()
 print("loaded data!")
-results = match_search_terms(['Basil', 'New potatoes', 'Tomato', 'Bacon', 'Pasta', 'Paprika'])
+results = match_search_terms(['Thai curry paste', 'Egg'])
 print(results)
