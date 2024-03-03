@@ -1,10 +1,14 @@
 import pandas as pd
 import inflect
 import re
+import sys
 p = inflect.engine()
 
 keywords = pd.read_csv('data/ingredients_data.csv')['Ingredient'].tolist()
 NR_RESULTS = 20
+
+#Pass in list of ingredients to find 
+ingredients = sys.argv[1]
 
 # Matches the ingredient in a recipe to one in the predefined list of ingredients
 # Finds longest match
@@ -60,5 +64,5 @@ def match_search_terms(search_terms):
 
 #generate_clean_csv()
 print("loaded data!")
-results = match_search_terms(['Basil', 'New potatoes', 'Tomato', 'Bacon', 'Pasta', 'Paprika'])
+results = match_search_terms(ingredients)
 print(results)

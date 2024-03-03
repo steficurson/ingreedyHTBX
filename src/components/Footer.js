@@ -18,19 +18,19 @@ function Footer() {
         </p>
       </section>
        
-      <section class='social-media'>
-        <div class='social-media-wrap'>
-          <div class='footer-logo'>
+      <section className='social-media'>
+        <div className='social-media-wrap'>
+          <div className='footer-logo'>
           </div>
-          <small class='website-rights'>Ingreedy © 2023</small>
-          <div class='social-icons'>
+          <small className='website-rights'>Ingreedy © 2023</small>
+          <div className='social-icons'>
             <Link
               class='social-icon-link facebook'
               to='/'
               target='/'
               aria-label='Facebook'
             >
-              <i class='fab fa-facebook-f' />
+              <i className='fab fa-facebook-f' />
             </Link>
             <Link
               class='social-icon-link instagram'
@@ -38,7 +38,7 @@ function Footer() {
               target='/'
               aria-label='Instagram'
             >
-              <i class='fab fa-instagram' />
+              <i className='fab fa-instagram' />
             </Link>
             <Link
               class='social-icon-link tik tok'
@@ -46,7 +46,7 @@ function Footer() {
               target='/'
               aria-label='Tiktok'
             >
-              <i class='fab fa-tiktok' />
+              <i className='fab fa-tiktok' />
             </Link>
             <Link
               class='social-icon-link x'
@@ -54,7 +54,7 @@ function Footer() {
               target='/'
               aria-label='X'
             >
-              <i class='fab fa-x' />
+              <i className='fab fa-x' />
             </Link>
           </div>
         </div>

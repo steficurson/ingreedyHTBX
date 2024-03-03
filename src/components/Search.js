@@ -3,11 +3,15 @@ import React, { useEffect, useState } from 'react';
 import stuff from '../../src/ingredients_data.csv'
 import Select from 'react-select'; 
 import {csv} from 'd3'
+import PyodidePythonHelper from "./RecipeBuilder"
+
+const selected_ingredients = []
 
 function DropDown() {
 
   const [ingredients, setIngredients] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+
   useEffect(() => {
     // Fetch CSV data and parse it
     csv(stuff).then(response => {
@@ -23,8 +27,11 @@ function DropDown() {
   const handleSelectChange = selectedOptions => {
     // Extract the selected ingredient names from selectedOptions
     const selectedIngredientNames = selectedOptions.map(option => option.value);
+
     setSelectedIngredients(selectedIngredientNames);
   };
+
+  
 
   return (
     <div>
@@ -49,15 +56,45 @@ function DropDown() {
       <h3>Selected Ingredients:</h3>
         <ul>
           {selectedIngredients.map((ingredient, index) => (
+            selected_ingredients.push({ingredient}),
             <li key={index}>{ingredient}</li>
           ))}
         </ul>
+        {/* <MatchRecipes></MatchRecipes> */}
       </div>
     </div>
   );
 }
 
+// function MatchRecipes(){
+//   const [text, setText] = useState([]);
+
+//   useEffect(() => {
+//     // Fetch CSV data and parse it
+//     builder(ingredients).then(response => {
+//       setIngredients(response); // Assuming response is an array of ingredients
+//     });
+//   }, []); // Empty dependency array ensures useEffect runs only once
+  
+//   const handleSelectChange = allRecipes => {
+//     // Extract the selected ingredient names from selectedOptions
+//     const recipes = allRecipes.map(option => option.value);
+//     setSelectedIngredients(selectedIngredientNames);
+//   };
+
+//   return(
+//     <div>
+//       <h1>Recipes</h1>
+//     </div>
+//   )
+// }
+
+
 function SearchBar() {
+  //Took out, dont think its working 
+  const handleSearchClick = () => {
+    return <PyodidePythonHelper selectedIngredients={selected_ingredients} />;
+  };
   return (
     <div className='SearchContainer'>
         <div className='SearchContent'>
@@ -87,9 +124,8 @@ function SearchBar() {
                 </div>
                 <DropDown />
                 <div className='SearchBar'>
-                {/* searchbar */}
-                  <input type='text' id='search' name='search' placeholder='Add ingredients' />
-                  <button type='button'>Search</button>
+                console.log("pre button")
+                <button type='button' onClick={handleSearchClick}>Search</button>
                 
                 </div>
                 </div>
