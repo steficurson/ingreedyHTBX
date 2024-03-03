@@ -18,12 +18,13 @@ background-color: #fffced;
 }
 
 .gig {
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 50vh;
+    height: 40vh;
     width: 100%;
-    object-fit: cover;
+    object-fit:contain;
 }
 
 .aboutNew-container h1 {
@@ -71,5 +72,13 @@ a {
                 margin: auto;
                 font-size: 1.2rem;
                 text-align: center;
+            }
+            .gig {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 40vh;
+                width: 100%;
+                object-fit: cover;
             }
           }
