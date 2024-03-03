@@ -17,6 +17,7 @@ margin: 0.5rem;
 @media only screen and (max-width:1000px) {
     .WelcomeContent {
     flex-direction: column;
+    padding: 2rem;
     }
 }
 
