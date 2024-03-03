@@ -1,12 +1,10 @@
 import pandas as pd
 import inflect
 import re
-import sys
 p = inflect.engine()
 
-ROOT_PATH = '../public/data/'
+keywords = pd.read_csv('src\data\ingredients_data.csv')['Ingredient'].tolist()
 NR_RESULTS = 20
-keywords = pd.read_csv(ROOT_PATH + 'ingredients_data.csv')['Ingredient'].tolist()
 
 # Matches the ingredient in a recipe to one in the predefined list of ingredients
 # Finds longest match
@@ -23,24 +21,24 @@ def find_ingredient(ingredient):
 #Loads the scraped data and parses the ingredients
 def generate_clean_csv():
     # Load the data
-    recipe_data = pd.read_csv(ROOT_PATH + 'recipes_data.csv')
+    recipe_data = pd.read_csv('./src/data/recipes_data.csv')
     recipe_data.dropna(subset=['ingredient'], inplace=True)
 
     for index, recipe in recipe_data.iterrows():
         ingredient_data = recipe['ingredient'].split(',')
         cleaned_ingredients = []
         for ingredient in ingredient_data:
-            ingredient = re.sub(";[^;]*$", "", ingredient) #remove everything after ;
+            #ingredient = re.sub(";[^;]*$", "", ingredient) #remove everything after ;
             matched_ingredient = find_ingredient(ingredient)
             if matched_ingredient:
                 cleaned_ingredients.append(matched_ingredient)
         #Replace the ingredient list with the cleaned one - convert to set to remove duplicates
         recipe_data.loc[index, 'ingredient'] = ','.join(set(cleaned_ingredients))
-    recipe_data.to_csv(ROOT_PATH + 'cleaned-recipes.csv')
+    recipe_data.to_csv('src\data\cleaned-recipes.csv')
 
 #Matches the search terms to the ingredients in the recipes
 def match_search_terms(search_terms):
-    recipe_data = pd.read_csv(ROOT_PATH + 'cleaned-recipes.csv')
+    recipe_data = pd.read_csv('src\data\cleaned-recipes.csv')
     recipe_data.dropna(subset=['ingredient'], inplace=True)
     recipe_data["nr_matches"] = ""
     recipe_data["matched_ingredients"] = ""
@@ -61,6 +59,5 @@ def match_search_terms(search_terms):
 
 
 #generate_clean_csv()
-print("loaded data!")
-results = match_search_terms(['Thai curry paste', 'Egg'])
+results = match_search_terms(['Basil', 'Tomato', 'Olive', 'Pasta', 'Rice', 'Lemon'])
 print(results)
