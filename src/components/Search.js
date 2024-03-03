@@ -15,7 +15,7 @@ function DropDown() {
   }, []);
 
   const fetchData =() => {
-    fetch("../../public/ingredients_data.csv")
+    fetch("../../public/data/ingredients_data.csv")
     .then( response => response.text() )
     .then( responseText => {
         // -- parse csv
