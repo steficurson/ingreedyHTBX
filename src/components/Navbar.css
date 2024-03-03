@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 90px;
     max-width: 1500px;
   }
 
@@ -27,23 +27,23 @@
   }
   
   .fa-typo3 {
-    margin-left: 0.5rem;
+    
     font-size: 1.8rem;
   }
   
   .nav-menu {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(3, auto);
     grid-gap: 10px;
     list-style: none;
     text-align: center;
-    width: 60vw;
+    width: 100%;
     justify-content: end;
-    margin-right: 0.4rem;
+    overflow-x: hidden;
   }
   
   .nav-item {
-    height: 80px;
+    height: 90px;
     font-size: 1.8rem;
   }
   
@@ -110,6 +110,7 @@
       left: -100%;
       opacity: 1;
       transition: all 0.5s ease;
+      grid-gap:0;
     }
   
     .nav-menu.active {
@@ -132,6 +133,9 @@
       padding: 2rem;
       width: 100%;
       display: table;
+      font-size: 1.4rem;
+    line-height: 1;
+    padding: 2rem 0;
     }
   
     .nav-links:before,
@@ -175,7 +179,6 @@
     .nav-links-mobile {
       display: block;
       text-align: center;
-      margin: 0.4rem auto;
       border-radius: 20px;
       width: 80%;
       text-decoration: none;
