@@ -38,6 +38,7 @@ width: 100%;
 display: flex;
 justify-content: center;
 padding: 2rem;
+
 }
 
 .Img {
@@ -97,7 +98,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-padding: 3rem;
+padding: 2rem;
 max-width: 100%;
     box-sizing: border-box;
 
@@ -118,6 +119,10 @@ max-width: 100%;
 font-size: 3.6rem;
 font-weight: bold;
 box-sizing: border-box;
+height: 100%;
+width: 100%;
+display: flex;
+justify-content: center;
 }
 
 .WelcomeText {
