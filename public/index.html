@@ -13,6 +13,10 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <script src="https://kit.fontawesome.com/ca7ef48bb5.js" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js" onload=onPyodideLoaded()></script> -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+    
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -30,6 +34,18 @@
     <title>Ingreedy</title>
   </head>
   <body>
+    <script type="text/javascript">
+      async function main(){
+        // let pyodide = await loadPyodide();
+        let pyodide = await window.loadPyodide;
+        console.log(pyodide.runPython(`
+            import sys
+            sys.version
+        `));
+        pyodide.runPython("print(1 + 2)");
+      }
+      main();
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

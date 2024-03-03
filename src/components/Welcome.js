@@ -15,11 +15,6 @@ const Welcome = () => {
                             We have a variety of categories to choose from that help meet your needs in finding unique recipes just for you.
                             You can customize the ingredients you want to be added in your meal. </p>
                         </div>
-                        <div className='WelcomeText'>
-                            <p>
-                            We will find a variety of recipes based on your meal type, cooking level, time and ingredients. 
-                            Start by using the available search bar to add ingredients.</p>
-                        </div>
                     </div>
                 </div> 
         </div>
