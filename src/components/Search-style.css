@@ -57,8 +57,15 @@
                 flex-direction: column;
                 align-items: center;
               }
+
+              .hi  {
+                margin: 2rem;
+              }
           }
         
+    ul li {
+      list-style-type: none;
+    }
 
     .SearchTitleButtons {
         display: flex;
@@ -66,6 +73,149 @@
         justify-content: center;
        
       }
+
+      
+      
+      /* CSS */
+      .button-82-pushable {
+        position: relative;
+        border: none;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        outline-offset: 4px;
+        transition: filter 250ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+      
+      .button-82-shadow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: hsl(0deg 0% 0% / 0.25);
+        will-change: transform;
+        transform: translateY(2px);
+        transition:
+          transform
+          600ms
+          cubic-bezier(.3, .7, .4, 1);
+      }
+      
+      .button-82-edge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: linear-gradient(
+          to left,
+          hsl(340deg 100% 16%) 0%,
+          hsl(340deg 100% 32%) 8%,
+          hsl(340deg 100% 32%) 92%,
+          hsl(340deg 100% 16%) 100%
+        );
+      }
+      
+      .button-82-front {
+        display: block;
+        position: relative;
+        padding: 12px 27px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        color: white;
+        background: hsl(345deg 100% 47%);
+        will-change: transform;
+        transform: translateY(-4px);
+        transition:
+          transform
+          600ms
+          cubic-bezier(.3, .7, .4, 1);
+      }
+      
+      @media (min-width: 768px) {
+        .button-82-front {
+          font-size: 1.25rem;
+          padding: 12px 42px;
+        }
+      }
+      
+      .button-82-pushable:hover {
+        filter: brightness(110%);
+        -webkit-filter: brightness(110%);
+      }
+      
+      .button-82-pushable:hover .button-82-front {
+        transform: translateY(-6px);
+        transition:
+          transform
+          250ms
+          cubic-bezier(.3, .7, .4, 1.5);
+      }
+      
+      .button-82-pushable:active .button-82-front {
+        transform: translateY(-2px);
+        transition: transform 34ms;
+      }
+      
+      .button-82-pushable:hover .button-82-shadow {
+        transform: translateY(4px);
+        transition:
+          transform
+          250ms
+          cubic-bezier(.3, .7, .4, 1.5);
+      }
+      
+      .button-82-pushable:active .button-82-shadow {
+        transform: translateY(1px);
+        transition: transform 34ms;
+      }
+      
+      .button-82-pushable:focus:not(:focus-visible) {
+        outline: none;
+      }s
+/* CSS */
+.button-24 {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+
       
       .DropdownContainer {
         display: flex;
@@ -77,18 +227,53 @@
         padding: 10px;
       }
       
-      select {
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-left: 10px;
+      .custom-select {
+        min-width: 350px;
+        position: relative;
       }
       
+      select {
+        appearance: none;
+        /*  safari  */
+        -webkit-appearance: none;
+        /*  other styles for aesthetics */
+        width: 100%;
+        font-size: 1.15rem;
+        padding: 0.675em 6em 0.675em 1em;
+        background-color: #fff;
+        border: 1px solid #caced1;
+        border-radius: 0.25rem;
+        color: #000;
+        cursor: pointer;
+      }
+      
+      .custom-select::before,
+      .custom-select::after {
+        --size: 0.3rem;
+        content: "";
+        position: absolute;
+        right: 1rem;
+        pointer-events: none;
+      }
+      
+      .custom-select::before {
+        border-left: var(--size) solid transparent;
+        border-right: var(--size) solid transparent;
+        border-bottom: var(--size) solid black;
+        top: 40%;
+      }
+      
+      .custom-select::after {
+        border-left: var(--size) solid transparent;
+        border-right: var(--size) solid transparent;
+        border-top: var(--size) solid black;
+        top: 55%;
+      }
       .SearchBar {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 5rem;
+        padding: 2rem;
       }
       
       input {
@@ -117,8 +302,6 @@
         border-radius: 4px;
         cursor: pointer;
       }
-
-      
       
       button:hover {
         background-color: black;

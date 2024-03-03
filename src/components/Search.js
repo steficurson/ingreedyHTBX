@@ -53,7 +53,8 @@ function DropDown() {
             color: state.isSelected ? 'white' : 'black', // Change color based on selection
             backgroundColor: state.isSelected ? ' #d6322c' : 'white', // Change background color based on selection
             width: 100,
-            padding:10
+            padding:10,
+            borderWidth: 5,
           }),
           multiValueLabel: (provided) => ({
             ...provided,
@@ -100,6 +101,7 @@ function DropDown() {
 
 
 function SearchBar() {
+  
   //Took out, dont think its working 
   const [showResult, setShowResult] = useState(false);
   const handleSearchClick = () => {
@@ -135,11 +137,18 @@ function SearchBar() {
                 <DropDown />
                 <div className='SearchBar'>
                 
-                <button type='button' onClick={handleSearchClick}>Search</button>
+                <button class="button-82-pushable" role="button">
+        <span class="button-82-shadow"></span>
+        <span class="button-82-edge"></span>
+        <span class="button-82-front text">
+          SEARCH
+        </span>
+      </button>
                 {showResult && <PyodidePythonHelper selectedIngredients={selected_ingredients} />}
                 </div>
                 </div>
         </div> 
+        
     </div>
   )
 }
