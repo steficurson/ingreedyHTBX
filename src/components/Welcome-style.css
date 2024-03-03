@@ -5,8 +5,7 @@ align-items: center;
 width: 100%;
 color: #d6322c;
 background: #fbfcf0;
-max-width: 100%;
-    box-sizing: border-box;
+
 }
 
 .WelcomeContent {
@@ -14,8 +13,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding: 0.5rem;
-max-width: 100%;
-    box-sizing: border-box;
+
 }
 
 @media only screen and (max-width:1000px) {
@@ -99,9 +97,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 2rem;
-max-width: 100%;
-    box-sizing: border-box;
-
 }
 
 @media only screen and (min-width:1200px) {
