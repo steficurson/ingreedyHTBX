@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+## Inspiration
+We wanted to create a solution to an everyday problem and realised a problem that all of us had encountered. We've all had leftover ingredients in the fridge that we just don't know how to use. In many cases, these ingredients will just stay there, sad and unused in our fridges and cupboards, until they eventually get thrown out! This creates unnecessary food waste and is a waste of money.
+Ingreedy minimises wastage by helping users find recipes that use the ingredients they already have.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What it does
+Users can input the ingredients they want to use in their recipe. They can also filter recipes based on meal type, skill level, and cooking time. Ingreedy will then display the recipes which match the most ingredients and filters in the search term.
 
-## Available Scripts
+## How we built it
+We used React.js to create the main web application.
+Using our Beautiful Soup scraper, we got the recipes and the list of all ingredients from BBC GoodFood.
+Python scripts were used in the backend to extract the ingredients from the recipes, and then to match these to the user's searches.
+Kate led front-end development, Anna wrote the web scraper and Stefi wrote the Python scripts.
 
-In the project directory, you can run:
+## Challenges we ran into
+Connecting front-end and back-end. We wrote the front-end in React and created back-end scripts in Python, but we had difficulties connecting these such that the form inputs would be passed into the Python function. We tried using Django and Flask, and library Pyodide for this but nothing worked in the end. Therefore, we have a frontend and a backend but no bridge between them :(
 
-### `npm start`
+## Accomplishments that we're proud of
+Web scraper: we weren't very familiar with Beautiful Soup beforehand so we feel proud that we managed to scrape from BBC GoodFood and get this data into a format where we could match it to user inputs.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What we learned
+We all learned a lot about React, and about Python web libraries like Django and Flask. We also learned about web scraping with Beautiful Soup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## What's next for Ingreedy
+Integrate the frontend and backend successfully.
+Add support for filtering by dietary requirements. We have scraped this data from BBC GoodFood, so we will just add another multi-select which will filter the user's search results.
